@@ -25,9 +25,9 @@ const verticals = [
     description:
       "Minimalist clinical dashboards, wellness tracking, and patient engagement tools that make health data calm and legible.",
     features: [
-      "Patient & wellness dashboards",
+      "IoT wellness tracking & remote vitals",
+      "AI-assisted clinical dashboards",
       "Telehealth engagement portals",
-      "Clinical data visualization",
     ],
     visual: (
       <div className="space-y-3">
@@ -69,8 +69,8 @@ const verticals = [
     description:
       "Eco-tech platforms, GPS mapping, and wildlife monitoring interfaces built for researchers and rangers in the field.",
     features: [
-      "GPS tracking & geofenced alerts",
-      "Wildlife population monitoring",
+      "IoT GPS collars & geofenced alerts",
+      "AI wildlife population monitoring",
       "Field-ready offline-first apps",
     ],
     visual: (
@@ -120,7 +120,7 @@ const verticals = [
       "Clean engagement portals, communication hubs, and giving platforms that bring congregations and communities closer.",
     features: [
       "Member engagement portals",
-      "Broadcast & communication hubs",
+      "AI-assisted communication hubs",
       "Events, giving & volunteering",
     ],
     visual: (
@@ -173,8 +173,8 @@ export function Labs() {
       <div className="relative mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="GeTech Labs"
-          title="Multidisciplinary Solutions"
-          description="Vertical expertise where technology meets purpose — health, nature, and community."
+          title="IoT & AI Solutions"
+          description="We are building IoT and AI solutions that go across healthcare, churches, and wildlife — connected devices and intelligent systems where technology meets purpose."
         />
 
         {/* Category switcher */}

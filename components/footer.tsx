@@ -84,8 +84,7 @@ export function Footer() {
         </div>
 
         <p className="mt-14 border-t border-meteorite/10 pt-8 text-center text-xs text-meteorite/50">
-          © {year} GeTech Solutions. All rights reserved. Precision-engineered
-          with the Alignment.
+          © {year} GeTech Solutions. All rights reserved.
         </p>
       </div>
     </footer>

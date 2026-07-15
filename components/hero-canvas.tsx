@@ -22,7 +22,7 @@ function CoreStructure() {
     const positions = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
       const angle = (i / count) * Math.PI * 2;
-      const radius = 2.6 + (Math.random() - 0.5) * 0.35;
+      const radius = 2.0 + (Math.random() - 0.5) * 0.3;
       positions[i * 3] = Math.cos(angle) * radius;
       positions[i * 3 + 1] = (Math.random() - 0.5) * 0.12;
       positions[i * 3 + 2] = Math.sin(angle) * radius;
@@ -68,7 +68,7 @@ function CoreStructure() {
   });
 
   return (
-    <group ref={group}>
+    <group ref={group} scale={0.78}>
       {/* Outer wireframe shell */}
       <mesh ref={shell}>
         <icosahedronGeometry args={[1.9, 1]} />
@@ -136,8 +136,8 @@ function AmbientParticles() {
     const count = 350;
     const positions = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 14;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 9;
+      positions[i * 3] = (Math.random() - 0.5) * 10;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 7;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 6 - 2;
     }
     const geo = new THREE.BufferGeometry();

@@ -51,7 +51,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.55, ease: easeOut }}
-          className="font-heading text-gradient-silver animate-shimmer text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:max-w-xl xl:text-8xl"
+          className="font-heading text-gradient-silver animate-shimmer text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:max-w-xl xl:text-7xl"
           style={{ animationDuration: "8s" }}
         >
           Engineering

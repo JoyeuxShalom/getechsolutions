@@ -7,7 +7,7 @@ import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
 import { Magnetic } from "./magnetic-button";
 
-type Status = "idle" | "sending" | "sent";
+type Status = "idle" | "sending" | "sent" | "error";
 
 function FloatingField({
   id,
@@ -78,12 +78,34 @@ function FloatingField({
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (status !== "idle") return;
+    if (status === "sending" || status === "sent") return;
     setStatus("sending");
-    // Simulated secure transmission — wire to an API route or form service in production.
-    setTimeout(() => setStatus("sent"), 1600);
+
+    const data = new FormData(e.currentTarget);
+    try {
+      const res = await fetch(
+        "https://formsubmit.co/ajax/getechsolutions@protonmail.com",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            name: data.get("name"),
+            email: data.get("email"),
+            organization: data.get("organization") || "—",
+            message: data.get("message"),
+            _subject: "New proposal request — getechsolutions.com",
+            _template: "table",
+          }),
+        }
+      );
+      const body = await res.json().catch(() => ({}));
+      if (res.ok && String(body.success) !== "false") setStatus("sent");
+      else setStatus("error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -180,6 +202,12 @@ export function Contact() {
                         )}
                       </button>
                     </Magnetic>
+                    {status === "error" && (
+                      <p className="mt-4 text-center text-sm text-red-300/80">
+                        Transmission failed — please retry, or email us directly
+                        at getechsolutions@protonmail.com.
+                      </p>
+                    )}
                   </div>
                 </motion.form>
               )}
