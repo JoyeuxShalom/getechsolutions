@@ -23,7 +23,11 @@ const columns = [
   {
     heading: "Connect",
     links: [
-      { label: "GitHub", href: "https://github.com", external: true },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/company/getechrw/",
+        external: true,
+      },
       {
         label: "getechsolutions@protonmail.com",
         href: "mailto:getechsolutions@protonmail.com",
