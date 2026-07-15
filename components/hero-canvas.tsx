@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useMemo, Suspense } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 /**
@@ -16,6 +16,14 @@ function CoreStructure() {
   const innerShell = useRef<THREE.Mesh>(null);
   const halo = useRef<THREE.Points>(null);
   const pointer = useRef({ x: 0, y: 0 });
+  const { viewport } = useThree();
+
+  // Fit the whole structure (halo radius ≈ 2.15) inside the visible
+  // canvas on any screen, capped at the desktop scale.
+  const fitScale = Math.min(
+    0.78,
+    (Math.min(viewport.width, viewport.height) * 0.475) / 2.15
+  );
 
   const haloGeometry = useMemo(() => {
     const count = 900;
@@ -68,7 +76,7 @@ function CoreStructure() {
   });
 
   return (
-    <group ref={group} scale={0.78}>
+    <group ref={group} scale={fitScale}>
       {/* Outer wireframe shell */}
       <mesh ref={shell}>
         <icosahedronGeometry args={[1.9, 1]} />
