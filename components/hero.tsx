@@ -47,16 +47,6 @@ export function Hero() {
 
       {/* Copy — left column on desktop */}
       <div className="pointer-events-none relative z-10 mx-auto w-full max-w-6xl px-6 text-center lg:text-left">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: easeOut }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-nordic/50 bg-midnight/60 px-4 py-1.5 text-xs tracking-[0.22em] text-meteorite uppercase backdrop-blur-md"
-        >
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-glow" />
-          Futuristic Technology Venture
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

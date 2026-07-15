@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Github, GitCommitHorizontal, ShieldCheck } from "lucide-react";
 import { AlignmentLogo } from "./logo";
 
 const columns = [
@@ -81,35 +79,7 @@ export function Footer() {
           ))}
         </div>
 
-        {/* System status bar */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 rounded-2xl border border-meteorite/10 bg-midnight/50 px-6 py-4 text-xs text-meteorite sm:flex-row">
-          <div className="flex items-center gap-2">
-            <ShieldCheck size={14} className="text-emerald-400/80" />
-            <span className="flex items-center gap-2">
-              <motion.span
-                className="h-1.5 w-1.5 rounded-full bg-emerald-400"
-                animate={{ opacity: [1, 0.3, 1] }}
-                transition={{ duration: 2.4, repeat: Infinity }}
-              />
-              All Systems Secure
-            </span>
-          </div>
-          <div className="flex items-center gap-2 font-mono text-[11px] text-meteorite/70">
-            <GitCommitHorizontal size={14} />
-            <span>main · v1.0.0 · deployed on Vercel</span>
-          </div>
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 transition-colors hover:text-white"
-          >
-            <Github size={14} />
-            Source
-          </a>
-        </div>
-
-        <p className="mt-8 text-center text-xs text-meteorite/50">
+        <p className="mt-14 border-t border-meteorite/10 pt-8 text-center text-xs text-meteorite/50">
           © {year} GeTech Solutions. All rights reserved. Precision-engineered
           with the Alignment.
         </p>
