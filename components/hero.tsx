@@ -30,20 +30,23 @@ export function Hero() {
       id="top"
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
-      {/* 3D revolving core — opaque obsidian canvas at the very back */}
-      <div className="absolute inset-0 z-0" aria-hidden>
+      {/* 3D revolving core — full-bleed on mobile, right half on desktop */}
+      <div
+        className="absolute inset-0 z-0 lg:inset-y-0 lg:left-1/2 lg:right-0"
+        aria-hidden
+      >
         <HeroCanvas />
       </div>
 
       {/* Ambient overlays above the canvas */}
       <div className="grid-lines absolute inset-0 z-[1]" aria-hidden />
       <div
-        className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_60%_50%_at_50%_35%,rgba(43,65,98,0.28),transparent_70%)]"
+        className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_60%_50%_at_70%_45%,rgba(43,65,98,0.28),transparent_70%)]"
         aria-hidden
       />
 
-      {/* Copy */}
-      <div className="pointer-events-none relative z-10 mx-auto max-w-5xl px-6 text-center">
+      {/* Copy — left column on desktop */}
+      <div className="pointer-events-none relative z-10 mx-auto w-full max-w-6xl px-6 text-center lg:text-left">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +61,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.55, ease: easeOut }}
-          className="font-heading text-gradient-silver animate-shimmer text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+          className="font-heading text-gradient-silver animate-shimmer text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:max-w-xl xl:text-8xl"
           style={{ animationDuration: "8s" }}
         >
           Engineering
@@ -72,7 +75,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.85, ease: easeOut }}
-          className="mx-auto mt-8 max-w-2xl text-base text-meteorite sm:text-lg"
+          className="mx-auto mt-8 max-w-2xl text-base text-meteorite sm:text-lg lg:mx-0 lg:max-w-lg"
         >
           We build lasting tech solutions for{" "}
           <span className="relative inline-block h-[1.5em] w-[11ch] overflow-hidden align-bottom text-left">
@@ -95,7 +98,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.05, ease: easeOut }}
-          className="pointer-events-auto mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="pointer-events-auto mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
         >
           <Magnetic strength={0.2}>
             <a
