@@ -70,7 +70,7 @@ export function Footer() {
                       {...("external" in link && link.external
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="text-sm text-meteorite transition-colors duration-300 hover:text-white"
+                      className="text-sm break-all text-meteorite transition-colors duration-300 hover:text-white"
                     >
                       {link.label}
                     </a>

@@ -30,17 +30,17 @@ export function Hero() {
       id="top"
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
-      {/* Ambient background */}
-      <div className="grid-lines absolute inset-0" aria-hidden />
-      <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_35%,rgba(43,65,98,0.28),transparent_70%)]"
-        aria-hidden
-      />
-
-      {/* 3D revolving core */}
-      <div className="absolute inset-0 z-0 opacity-90" aria-hidden>
+      {/* 3D revolving core — opaque obsidian canvas at the very back */}
+      <div className="absolute inset-0 z-0" aria-hidden>
         <HeroCanvas />
       </div>
+
+      {/* Ambient overlays above the canvas */}
+      <div className="grid-lines absolute inset-0 z-[1]" aria-hidden />
+      <div
+        className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_60%_50%_at_50%_35%,rgba(43,65,98,0.28),transparent_70%)]"
+        aria-hidden
+      />
 
       {/* Copy */}
       <div className="pointer-events-none relative z-10 mx-auto max-w-5xl px-6 text-center">

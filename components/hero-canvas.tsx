@@ -99,11 +99,13 @@ function CoreStructure() {
 
       {/* The focal core — the singular perfect solution */}
       <mesh>
-        <sphereGeometry args={[0.42, 48, 48]} />
+        <sphereGeometry args={[0.3, 48, 48]} />
         <meshStandardMaterial
-          color="#ffffff"
-          emissive="#dbeafe"
-          emissiveIntensity={1.6}
+          color="#e2e8f0"
+          emissive="#93b4d8"
+          emissiveIntensity={0.9}
+          transparent
+          opacity={0.85}
           roughness={0.1}
         />
       </mesh>
@@ -166,9 +168,10 @@ export default function HeroCanvas() {
     <Canvas
       dpr={[1, 1.8]}
       camera={{ position: [0, 0, 6.2], fov: 42 }}
-      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-      style={{ background: "transparent" }}
+      gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
     >
+      {/* Opaque obsidian background — avoids transparent-canvas compositing bugs */}
+      <color attach="background" args={["#020406"]} />
       <ambientLight intensity={0.25} />
       <pointLight position={[6, 4, 6]} intensity={26} color="#7dd3fc" />
       <pointLight position={[-6, -3, 4]} intensity={18} color="#2B4162" />
