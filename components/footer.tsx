@@ -33,7 +33,6 @@ const columns = [
         href: "mailto:getechsolutions@protonmail.com",
         external: true,
       },
-      { label: "Brand Kit (.zip)", href: "/brand/getech-brand-kit.zip" },
     ],
   },
 ];
